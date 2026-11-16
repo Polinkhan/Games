@@ -1,0 +1,13 @@
+{
+  "name": "cyber-arena-3d",
+  "version": "1.0.0",
+  "description": "3D First-Person Arena Shooter with real-time multiplayer and AI drones",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
