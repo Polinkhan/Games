@@ -1,0 +1,18 @@
+{
+  "name": "tash",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"pnpm --filter @tash/server dev\" \"pnpm --filter @tash/web dev\"",
+    "build": "pnpm --filter @tash/web build",
+    "start": "pnpm --filter @tash/server start",
+    "test": "pnpm -r --workspace-concurrency=1 test",
+    "typecheck": "pnpm -r typecheck",
+    "e2e": "pnpm --filter @tash/web e2e"
+  },
+  "devDependencies": {
+    "concurrently": "10.0.7",
+    "typescript": "5.9.3"
+  }
+}

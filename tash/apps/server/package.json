@@ -1,0 +1,24 @@
+{
+  "name": "@tash/server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "NODE_ENV=production tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@tash/engine": "workspace:*",
+    "@fastify/static": "10.1.11",
+    "fastify": "5.12.8",
+    "socket.io": "4.8.4",
+    "tsx": "4.23.15",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "socket.io-client": "4.8.4",
+    "vitest": "3.2.7"
+  }
+}

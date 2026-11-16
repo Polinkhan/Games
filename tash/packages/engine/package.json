@@ -1,0 +1,13 @@
+{
+  "name": "@tash/engine",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p .",
+    "hazari:table": "tsx src/hazari/buildTable.ts"
+  },
+  "dependencies": { "zod": "4.6.7" },
+  "devDependencies": { "vitest": "3.2.7", "tsx": "4.23.15", "@types/node": "26.6.6" }
+}
