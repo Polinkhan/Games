@@ -1,0 +1,25 @@
+{
+  "name": "ludo",
+  "private": true,
+  "type": "module",
+  "description": "Ludo in the browser: solo against bots or online with friends.",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node --watch server/index.ts",
+    "build": "vite build",
+    "start": "NODE_ENV=production node server/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "engines": { "node": ">=23.6" },
+  "dependencies": {
+    "socket.io": "4.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "socket.io-client": "4.8.4",
+    "typescript": "5.9.3",
+    "vite": "7.3.8",
+    "vitest": "3.2.7"
+  }
+}
