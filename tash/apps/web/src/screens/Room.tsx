@@ -157,7 +157,7 @@ function Lobby({ room, onLeave }: { room: RoomSnapshot; onLeave: () => void }) {
   const t = useT();
   const isHost = room.hostPlayerId === room.you.playerId;
   const ui = GAME_UI[room.gameId];
-  const link = `${location.origin}/room/${room.code}`;
+  const link = `${location.origin}${import.meta.env.BASE_URL}room/${room.code}`;
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {

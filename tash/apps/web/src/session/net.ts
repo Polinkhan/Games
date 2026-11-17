@@ -45,7 +45,7 @@ class Net {
   private ensure(): Socket {
     if (this.socket) return this.socket;
     useNet.setState({ status: 'connecting' });
-    const socket = io({ auth: this.me, transports: ['websocket', 'polling'], reconnectionDelayMax: 4000 });
+    const socket = io({ path: `${import.meta.env.BASE_URL}socket.io`, auth: this.me, transports: ['websocket', 'polling'], reconnectionDelayMax: 4000 });
     socket.on('connect', () => {
       useNet.setState({ status: 'online' });
       const code = useNet.getState().code;

@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   { path: '/room/:code', element: <RoomScreen /> },
   { path: '/how/:gameId', element: <HowToScreen /> },
   { path: '*', element: <Home /> },
-]);
+], { basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/' });
 
 export function App() {
   useEffect(() => {

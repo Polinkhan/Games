@@ -77,7 +77,9 @@ export async function createApp(opts: AppOptions = {}) {
   io.on('connection', (raw) => {
     const socket: ClientSocket = raw;
     const { playerId } = socket.handshake.auth as HandshakeAuth;
-    const ip = socket.handshake.address;
+    // Behind Cloudflare + nginx the socket peer is the proxy; prefer the forwarded client address.
+    const fwd = socket.handshake.headers['cf-connecting-ip'] ?? socket.handshake.headers['x-forwarded-for'];
+    const ip = (Array.isArray(fwd) ? fwd[0] : fwd)?.split(',')[0]?.trim() || socket.handshake.address;
     if (!sockets.has(playerId)) sockets.set(playerId, new Set());
     sockets.get(playerId)!.add(socket);
 

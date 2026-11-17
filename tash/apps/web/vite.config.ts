@@ -4,6 +4,8 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // Set BASE_PATH=/tash/ to serve the app under a sub-path (nginx strips the prefix).
+  base: process.env.BASE_PATH ?? '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -26,7 +28,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        navigateFallbackDenylist: [/^\/socket\.io/, /^\/health/],
+        navigateFallbackDenylist: [/\/socket\.io/, /\/health$/],
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
       },
     }),

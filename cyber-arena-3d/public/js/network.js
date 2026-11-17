@@ -25,7 +25,9 @@ class NetworkManager {
     }
 
     const wsProto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${wsProto}//${window.location.host}`;
+    // Connect relative to the page's directory so the game works under a sub-path (e.g. /arena/).
+    const basePath = window.location.pathname.replace(/[^/]*$/, '');
+    const wsUrl = `${wsProto}//${window.location.host}${basePath}`;
 
     try {
       this.ws = new WebSocket(wsUrl);
